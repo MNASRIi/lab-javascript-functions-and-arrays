@@ -16,13 +16,19 @@ console.log(maxOfTwoNumbers (6 ,9))
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(words) {
-  for (let i=0; i<words.length ; i++){
-    
-  }
-
+function longestWord(words) {
+    var longest = 0;
+    var word = null;
+    for (var i = 0; i < words.length; i++) {
+        if (longest < words[i].length) {
+            longest = words[i].length;
+            word = words[i];
+        }
+    }
+    return word;
 }
-findLongestWord(words)
+
+console.log(longestWord(words))
 
 
 
@@ -69,7 +75,14 @@ function averageNumbers(numbers) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+    var longest = 0;
+    for (var i = 0; i < wordsArr.length; i++) {
+            longest += wordsArr[i].length;
+        }
+        return longest/wordsArr.length;
+    }
+    console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -89,16 +102,30 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(value, index, self) {
+  return self.indexOf(value) === index;
+}
+
+var unique = wordsUnique.filter(uniquifyArray);
+
+console.log(unique);
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
 
+    if (wordsFind.includes(word)) {
+        return true;
+    }else{
+        return false
+    }
 
+}
+
+console.log(doesWordExist(wordsFind, 'machine'));
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -115,10 +142,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
 
+  var time = 0
 
+  for (let index = 0; index < wordsCount.length; index++) {
+      if (word == wordsCount[index]) {
+          time++
+      }
+  }
+  return time
 
+}
+
+console.log(howManyTimes(wordsCount, 'matter'));
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
